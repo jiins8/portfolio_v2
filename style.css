@@ -8,11 +8,14 @@ body {
 /* Navbar personalizado */
 .navbar {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 0 auto;
+    
 }
 
 .navbar-brand {
     font-weight: bold;
     font-size: 1.5rem;
+    margin-left: 1rem;
 }
 
 /* Hero Section */
@@ -34,12 +37,39 @@ body {
     background: #1E2836;
 }
 
-.about-section img {
-    max-width: 300px;
+.about-slider {
+    width: 100%;
+    height: 19em;
     margin: 0 auto;
+    padding:  2rem 0;
 }
 
-.skill-tags {
+.swiper-slide {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.swiper-slide h2 {
+    margin-bottom: 1rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: white;
+}
+
+.swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.swiper-pagination-bullet-active {
+    background: white;
+}
+
+/* Swiper Slider Styles */
+.about-sli.skill-tags {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
