@@ -88,7 +88,9 @@
             </div>
             <div class="swiper-slide">
               <h2 style="color: white; font-size: 2rem">Datos curiosos</h2>
-              <p class="lead" style="color: white">Soy un apasionado de los videojuegos</p>
+              <p class="lead" style="color: white">
+                Soy un apasionado de los videojuegos
+              </p>
             </div>
           </div>
           <div class="swiper-pagination"></div>
@@ -110,15 +112,10 @@
             <span class="badge bg-primary">JavaScript</span>
             <span class="badge bg-primary">React</span>
             <span class="badge bg-primary">Java</span>
+            <span class="badge bg-primary">SQL</span>
           </div>
 
-          <div class="col-md-6">
-            <img
-              src="avatar.jpg"
-              alt="Mi foto"
-              class="img-fluid rounded-circle"
-            />
-          </div>
+    
         </div>
       </div>
     </section>
@@ -130,11 +127,21 @@
         <div class="row">
           <div class="col-md-4 mb-4">
             <div class="card">
-              <img src="assets/proyecto1.png" class="card-img-top" alt="Proyecto 1" />
+              <img
+                src="assets/proyecto1.png"
+                class="card-img-top"
+                alt="Proyecto 1"
+              />
               <div class="card-body">
                 <h5 class="card-title">Arcade Web</h5>
-                <p class="card-text">Una página web con diferentes juegos de arcade</p>
-                <a href="https://juegoteca-publica-git-main-luiscallejacaballeros-projects.vercel.app/" class="btn btn-primary">Ver más</a>
+                <p class="card-text">
+                  Una página web con diferentes juegos de arcade
+                </p>
+                <a
+                  href="https://juegoteca-publica-git-main-luiscallejacaballeros-projects.vercel.app/"
+                  class="btn btn-primary"
+                  >Ver más</a
+                >
               </div>
             </div>
           </div>
@@ -168,20 +175,33 @@
         <h2 class="text-center mb-4">Contacto</h2>
         <div class="row">
           <div class="col-md-6">
-            <form>
+            <form id="contact-form">
               <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="name" required />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  required
+                />
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" required />
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  required
+                />
               </div>
               <div class="mb-3">
                 <label for="message" class="form-label">Mensaje</label>
                 <textarea
                   class="form-control"
                   id="message"
+                  name="message"
                   rows="5"
                   required
                 ></textarea>
@@ -249,5 +269,54 @@
         });
       });
     </script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init("iIk3Z-iVtbuKOsxYs"); // reemplaza con tu clave pública
+      })();
+    </script>
+
+ <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const aboutSlider = new Swiper(".about-slider", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+    });
+
+    const form = document.getElementById("contact-form");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      emailjs
+        .sendForm("service_tjkx17x", "template_difsjbf", this)
+        .then(
+          () => {
+            alert("¡Mensaje enviado correctamente!");
+            form.reset();
+          },
+          (error) => {
+            console.error("Error al enviar:", error);
+            alert("Error al enviar el mensaje. Intenta más tarde.");
+          }
+        );
+    });
+  });
+</script>
+
+  
   </body>
 </html>
