@@ -17,10 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  // Inicializar EmailJS
-  emailjs.init("iIk3Z-iVtbuKOsxYs"); // reemplaza por tu clave pública
-
-  // Formulario de contacto
+  // form scripts
+  emailjs.init("iIk3Z-iVtbuKOsxYs"); 
   const form = document.getElementById("contact-form");
   form.addEventListener("submit", function (e) {
     e.preventDefault();
